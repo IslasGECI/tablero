@@ -1,31 +1,42 @@
+<!DOCTYPE html>
 <html>
 <head>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <meta http-equiv="refresh" content="100">
+    <meta http-equiv="refresh" content="100">
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+    <title>Tablero de Reproducibilidad</title>
 </head>
 
 <body>
     <div class="container">
         <h1>Tablero</h1>
-        <table class="table table-condensed">
+        <table class="table table-condensed" id="tablero">
             <tr>
                 <th>Repositorio</th>
                 <th>Reporte</th>
                 <th>Develop</th>
                 <th>Default</th>
             </tr>
-
-            {% for registro in tablero %}
-            <tr>
-                <td><b>{{registro['repo']}}</b></td>
-                <td><code>{{registro['objetivo']}}</code></td>
-                <td><img src="{{registro['develop']}}" /></td>
-                <td><img src="{{registro['default']}}" /></td>
-            </tr>
-            {% endfor %}
         </table>
     </div>
+    <script>
+        $.getJSON("http://islasgeci.org:500/api/v1/dashboard", function(registros){
+            for (let registro of registros) {
+                $("#tablero").append(`
+                    <tr>
+                        <td><b>${registro['repo']}</b></td>
+                        <td><code>${registro['objetivo']}</code></td>
+                        <td><img src="${registro['develop']}" /></td>
+                        <td><img src="${registro['default']}" /></td>
+                    </tr>
+                `);
+            }
+        })
+    </script>
 </body>
 
 </html>
