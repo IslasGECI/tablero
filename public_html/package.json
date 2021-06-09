@@ -1,7 +1,7 @@
 {
-  "name": "no_oddities_here",
+  "name": "public_html",
   "version": "0.0.0-development",
-  "description": "Ejerciocio visto en code wars",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest"
