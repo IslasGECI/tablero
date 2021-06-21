@@ -8,4 +8,4 @@ run:
 
 tests:
 	yarn
-	yarn test -u
+	yarn test
