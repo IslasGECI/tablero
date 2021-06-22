@@ -1,0 +1,17 @@
+{
+  "name": "public_html",
+  "version": "0.0.0-development",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "jest": "^24.8.0"
+  },
+  "devDependencies": {
+    "@stryker-mutator/core": "^3.1.0",
+    "@stryker-mutator/jest-runner": "^3.1.0",
+    "@stryker-mutator/javascript-mutator": "^3.1.0"
+  }
+}

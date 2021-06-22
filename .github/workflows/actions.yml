@@ -1,0 +1,13 @@
+name: Tests
+on: [push, pull_request]
+
+jobs:
+  actions:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Copia repositorio
+      uses: actions/checkout@v2
+    - name: Construye imagen
+      run: docker build --tag tablero_front .
+    - name: Corre pruebas
+      run: docker run tablero_front make tests
