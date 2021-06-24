@@ -13,3 +13,7 @@ tests:
 clean:
 	rm -rf node_modules
 	rm -rf public_html/node_modules
+
+check_status:
+	curl -Is localhost:80 | head -1 | awk '{print $2}'
+	
