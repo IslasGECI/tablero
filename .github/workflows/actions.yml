@@ -18,4 +18,4 @@ jobs:
     - name: Construye imagen
       run: docker build --tag islasgeci .
     - name: Corre pruebas
-      run: docker run tablero_front make tests
+      run: docker run islasgeci make tests
