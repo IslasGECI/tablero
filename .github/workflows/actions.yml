@@ -16,6 +16,6 @@ jobs:
     - name: Copia repositorio
       uses: actions/checkout@v2
     - name: Construye imagen
-      run: docker build --tag tablero_front .
+      run: docker build --tag islasgeci .
     - name: Corre pruebas
       run: docker run tablero_front make tests
