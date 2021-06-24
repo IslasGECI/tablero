@@ -9,3 +9,7 @@ run:
 tests:
 	yarn
 	yarn test
+
+clean:
+	rm -rf node_modules
+	rm -rf public_html/node_modules
