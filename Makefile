@@ -1,7 +1,7 @@
 .PHONY: \
 		check_status \
 		clean \
-		test
+		tests
 
 clean:
 	rm --force --recursive node_modules

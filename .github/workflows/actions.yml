@@ -16,12 +16,10 @@ jobs:
     - name: Copia repositorio
       uses: actions/checkout@v2
     - name: Construye imagen
-      run: docker build --tag islasgeci .
+      run: make --makefile=build/Makefile build
     - name: Corre pruebas
-      run: docker run islasgeci make tests
+      run: make --makefile=build/Makefile tests
     - name: Corre contenedor
-      run: docker run --detach --name tablero_front --publish 80:80 islasgeci
+      run: make --makefile=build/Makefile up
     - name: Checa estado adentro del contenedor
-      run: docker exec tablero_front make check_status
-    - name: Checa estado afuera del contenedor
-      run: make check_status
+      run: make --makefile=build/Makefile check_status
