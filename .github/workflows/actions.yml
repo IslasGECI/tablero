@@ -20,8 +20,8 @@ jobs:
     - name: Corre pruebas
       run: docker run islasgeci make tests
     - name: Corre contenedor
-      run: docker run --detach --name tablero_front islasgeci
+      run: docker run --detach --name tablero_front --publish 80:80 islasgeci
     - name: Checa estado adentro del contenedor
       run: docker exec tablero_front make check_status
     - name: Checa estado afuera del contenedor
-      run: make --makefile=build/Makefile check_status
+      run: make check_status
