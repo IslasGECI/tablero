@@ -19,5 +19,7 @@ jobs:
       run: docker build --tag islasgeci .
     - name: Corre pruebas
       run: docker run islasgeci make tests
-    - name: Checa estado
+    - name: Checa estado adentro del contenedor
       run: docker run islasgeci make check_status
+    - name: Checa estado afuera del contenedor
+      run: make --makefile=build/Makefile check_status
