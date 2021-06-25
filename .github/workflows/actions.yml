@@ -19,7 +19,9 @@ jobs:
       run: docker build --tag islasgeci .
     - name: Corre pruebas
       run: docker run islasgeci make tests
+    - name: Corre contenedor
+      run: docker run --detach --name tablero_front islasgeci
     - name: Checa estado adentro del contenedor
-      run: docker run islasgeci make check_status
+      run: docker exec tablero_front make check_status
     - name: Checa estado afuera del contenedor
       run: make --makefile=build/Makefile check_status
