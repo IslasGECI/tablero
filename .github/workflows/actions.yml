@@ -22,6 +22,6 @@ jobs:
     - name: Corre contenedor
       run: make --makefile=build/Makefile up
     - name: Verifica el formato
-      run: docker run islasgeci/tablero_front make check
+      run: make --makefile=build/Makefile check
     - name: Checa estado del servicio
       run: make --makefile=build/Makefile check_status
