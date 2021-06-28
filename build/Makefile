@@ -6,6 +6,8 @@
 
 build:
 	docker build --tag islasgeci/tablero_front .
+check:
+	docker run islasgeci/tablero_front make check
 
 check_status:
 	docker exec tablero_front make check_status
