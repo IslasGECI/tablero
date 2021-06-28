@@ -4,6 +4,8 @@
 		check_js \
 		check_status \
 		clean \
+		format \
+		format_html \
 		setup \
 		tests
 
@@ -21,6 +23,11 @@ check_status:
 clean:
 	rm --force --recursive node_modules
 	rm --force --recursive public_html/node_modules
+
+format: setup format_html
+
+format_html:
+	yarn workspace public_html prettier:format_html
 
 setup:
 	yarn
