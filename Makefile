@@ -36,6 +36,5 @@ format_js:
 setup:
 	yarn
 
-tests:
-	yarn
+tests: setup
 	yarn test
