@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "prettier:check_html": "prettier --check *.html --print-width 100 --tab-width 4"
   },
   "dependencies": {
     "jest": "^24.8.0"
