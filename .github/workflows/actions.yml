@@ -1,5 +1,13 @@
 name: Tests
-on: [push, pull_request]
+on:
+  pull_request:
+    branches:
+      - develop
+      - master
+  push:
+    branches:
+      - develop
+      - master
 
 jobs:
   actions:
@@ -8,6 +16,12 @@ jobs:
     - name: Copia repositorio
       uses: actions/checkout@v2
     - name: Construye imagen
-      run: docker build --tag tablero_front .
+      run: make --makefile=build/Makefile build
     - name: Corre pruebas
-      run: docker run tablero_front make tests
+      run: make --makefile=build/Makefile tests
+    - name: Corre contenedor
+      run: make --makefile=build/Makefile up
+    - name: Verifica el formato
+      run: make --makefile=build/Makefile check
+    - name: Checa estado del servicio
+      run: make --makefile=build/Makefile check_status
