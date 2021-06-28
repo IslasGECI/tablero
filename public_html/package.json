@@ -10,6 +10,7 @@
     "jest": "^24.8.0"
   },
   "devDependencies": {
+    "prettier": "^2.3.0",
     "@stryker-mutator/core": "^3.1.0",
     "@stryker-mutator/jest-runner": "^3.1.0",
     "@stryker-mutator/javascript-mutator": "^3.1.0"
