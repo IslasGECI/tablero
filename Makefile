@@ -6,6 +6,7 @@
 		clean \
 		format \
 		format_html \
+		format_js \
 		setup \
 		tests
 
@@ -24,10 +25,13 @@ clean:
 	rm --force --recursive node_modules
 	rm --force --recursive public_html/node_modules
 
-format: setup format_html
+format: setup format_html format_js
 
 format_html:
 	yarn workspace public_html prettier:format_html
+
+format_js:
+	yarn workspace public_html prettier:format_js
 
 setup:
 	yarn
