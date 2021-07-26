@@ -34,7 +34,7 @@ format_html:
 format_js:
 	yarn workspace public_html prettier:format_js
 
-mutants:
+mutants: setup
 	yarn workspace public_html stryker run
 
 setup:
