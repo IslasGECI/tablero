@@ -25,3 +25,5 @@ jobs:
       run: make --makefile=build/Makefile check_status
     - name: Corre pruebas
       run: make --makefile=build/Makefile tests
+    - name: Evalúa resistencia a mutaciones
+      run: make --makefile=build/Makefile mutants
