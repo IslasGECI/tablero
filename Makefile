@@ -7,6 +7,7 @@
 		format \
 		format_html \
 		format_js \
+		mutants \
 		setup \
 		tests
 
@@ -32,6 +33,9 @@ format_html:
 
 format_js:
 	yarn workspace public_html prettier:format_js
+
+mutants:
+	yarn workspace public_html stryker run
 
 setup:
 	yarn
