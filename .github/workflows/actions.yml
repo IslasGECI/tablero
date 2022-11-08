@@ -18,7 +18,7 @@ jobs:
     - name: Copia repositorio
       uses: actions/checkout@v2
     - name: Construye imagen
-      run: make --makefile=build/Makefile build
+      run: docker build --tag islasgeci/tablero_front:latest --tag islasgeci/tablero_front:${GITHUB_SHA:0:4} .
     - name: Corre contenedor
       run: make --makefile=build/Makefile up
     - name: Verifica el formato
@@ -29,3 +29,13 @@ jobs:
       run: make --makefile=build/Makefile tests
     - name: Evalúa resistencia a mutaciones
       run: make --makefile=build/Makefile mutants
+    - name: Docker log-in
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      run: echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+    - name: Sube latest a Docker Hub
+      run: docker push islasgeci/tablero_front:latest
+    - name: Sube sha a Docker Hub
+      run: docker push islasgeci/tablero_front:${GITHUB_SHA:0:4}
+
