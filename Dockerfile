@@ -1,4 +1,4 @@
-FROM node:19.0-bullseye-slim
+FROM node:18.12-buster-slim
 WORKDIR /workdir
 COPY . .
 RUN apt update && apt full-upgrade --yes
