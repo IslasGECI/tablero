@@ -1,4 +1,4 @@
-FROM node:18.12-buster-slim
+FROM node:18.12.1-buster
 WORKDIR /workdir
 COPY . .
 RUN apt update && apt full-upgrade --yes
