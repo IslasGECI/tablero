@@ -38,5 +38,11 @@ jobs:
       run: docker push islasgeci/tablero_front:latest
     - name: Sube sha a Docker Hub
       run: docker push islasgeci/tablero_front:${GITHUB_SHA:0:4}
+    - name: Run Snyk to check Docker image for vulnerabilities
+      uses: snyk/actions/docker@master
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      with:
+        image: islasgeci/tablero_front:latest
 
 
