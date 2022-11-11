@@ -1,4 +1,4 @@
-FROM node:lts
+FROM node:lts-slim
 WORKDIR /workdir
 COPY . .
 RUN apt update && apt full-upgrade --yes
