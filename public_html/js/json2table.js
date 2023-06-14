@@ -6,7 +6,6 @@ $(window).on("load", function () {
                 <td><b>${registro["repo"]}</b></td>
                 <td><code>${registro["objetivo"]}</code></td>
                 <td><img src="${registro["develop"]}" /></td>
-                <td><img src="${registro["main"]}" /></td>
             </tr>
         `);
         }
