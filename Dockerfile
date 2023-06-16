@@ -1,4 +1,4 @@
-FROM node:18.12.1-buster
+FROM node:lts-buster
 WORKDIR /workdir
 COPY . .
 RUN apt update && apt full-upgrade --yes
