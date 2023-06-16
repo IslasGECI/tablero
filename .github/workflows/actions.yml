@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Copia repositorio
-      uses: actions/checkout@v2
+      uses: actions/checkout@main
     - name: Construye imagen
       run: docker build --tag islasgeci/tablero_front:latest --tag islasgeci/tablero_front:${GITHUB_SHA:0:4} .
     - name: Corre contenedor
